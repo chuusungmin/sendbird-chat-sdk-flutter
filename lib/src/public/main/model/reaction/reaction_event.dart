@@ -7,7 +7,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/reaction/reaction.dart';
 part 'reaction_event.g.dart';
 
 /// Objects representing a reaction event.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ReactionEvent {
   /// The channel type.
   @JsonKey(

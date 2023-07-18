@@ -11,3 +11,10 @@ SessionEvent _$SessionEventFromJson(Map<String, dynamic> json) => SessionEvent(
       eKey: json['ekey'] as String?,
       key: json['key'] as String?,
     );
+
+Map<String, dynamic> _$SessionEventToJson(SessionEvent instance) =>
+    <String, dynamic>{
+      'new_key': instance.newKey,
+      'ekey': instance.eKey,
+      'key': instance.key,
+    };

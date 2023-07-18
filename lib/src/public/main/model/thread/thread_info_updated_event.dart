@@ -7,7 +7,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/thread/thread_info.dart'
 part 'thread_info_updated_event.g.dart';
 
 /// Objects representing a thread info event.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ThreadInfoUpdateEvent {
   /// The [ThreadInfo] that has information about threaded messages.
   final ThreadInfo threadInfo;

@@ -15,3 +15,13 @@ Command _$CommandFromJson(Map<String, dynamic> json) => Command(
       errorMessage: json['message'] as String?,
       replyToChannel: json['reply_to_channel'] as bool? ?? false,
     );
+
+Map<String, dynamic> _$CommandToJson(Command instance) => <String, dynamic>{
+      'cmd': instance.cmd,
+      'ts': instance.timestamp,
+      'code': instance.errorCode,
+      'message': instance.errorMessage,
+      'require_auth': instance.requireAuth,
+      'req_id': instance.requestId,
+      'reply_to_channel': instance.replyToChannel,
+    };

@@ -28,3 +28,25 @@ GroupChannelUnreadItemCount _$GroupChannelUnreadItemCountFromJson(
       nonSuperGroupChannelUnreadMessageCount:
           json['non_super_group_channel_unread_message_count'] as int?,
     );
+
+Map<String, dynamic> _$GroupChannelUnreadItemCountToJson(
+        GroupChannelUnreadItemCount instance) =>
+    <String, dynamic>{
+      'group_channel_invitation_count': instance.groupChannelInvitationCount,
+      'group_channel_unread_mention_count':
+          instance.groupChannelUnreadMentionCount,
+      'group_channel_unread_message_count':
+          instance.groupChannelUnreadMessageCount,
+      'non_super_group_channel_invitation_count':
+          instance.nonSuperGroupChannelInvitationCount,
+      'non_super_group_channel_unread_mention_count':
+          instance.nonSuperGroupChannelUnreadMentionCount,
+      'non_super_group_channel_unread_message_count':
+          instance.nonSuperGroupChannelUnreadMessageCount,
+      'super_group_channel_invitation_count':
+          instance.superGroupChannelInvitationCount,
+      'super_group_channel_unread_mention_count':
+          instance.superGroupChannelUnreadMentionCount,
+      'super_group_channel_unread_message_count':
+          instance.superGroupChannelUnreadMessageCount,
+    };

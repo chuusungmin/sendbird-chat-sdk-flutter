@@ -33,9 +33,6 @@ UserMessage _$UserMessageFromJson(Map<String, dynamic> json) => UserMessage(
       createdAt: json['created_at'] as int? ?? 0,
       updatedAt: json['updated_at'] as int? ?? 0,
       parentMessageId: json['parent_message_id'] as int?,
-      threadInfo: json['thread_info'] == null
-          ? null
-          : ThreadInfo.fromJson(json['thread_info'] as Map<String, dynamic>),
       customType: json['custom_type'] as String?,
       messageSurvivalSeconds: json['message_survival_seconds'] as int? ?? -1,
       forceUpdateLastMessage:
@@ -66,6 +63,40 @@ UserMessage _$UserMessageFromJson(Map<String, dynamic> json) => UserMessage(
       ..errorCode = json['error_code'] as int?
       ..extendedMessage =
           json['extended_message'] as Map<String, dynamic>? ?? {};
+
+Map<String, dynamic> _$UserMessageToJson(UserMessage instance) =>
+    <String, dynamic>{
+      'request_id': instance.requestId,
+      'message_id': instance.messageId,
+      'message': instance.message,
+      'sending_status': _$SendingStatusEnumMap[instance.sendingStatus],
+      'channel_url': instance.channelUrl,
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'mention_type': _$MentionTypeEnumMap[instance.mentionType],
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
+      'is_reply_to_channel': instance.isReplyToChannel,
+      'parent_message_id': instance.parentMessageId,
+      'parent_message_info': instance.parentMessage?.toJson(),
+      'sorted_metaarray':
+          instance.allMetaArrays?.map((e) => e.toJson()).toList(),
+      'custom_type': instance.customType,
+      'message_survival_seconds': instance.messageSurvivalSeconds,
+      'silent': instance.isSilent,
+      'error_code': instance.errorCode,
+      'is_op_msg': instance.isOperatorMessage,
+      'data': instance.data,
+      'og_tag': instance.ogMetaData?.toJson(),
+      'reactions': instance.reactions?.map((e) => e.toJson()).toList(),
+      'extended_message': instance.extendedMessage,
+      'force_update_last_message': instance.forceUpdateLastMessage,
+      'user': instance.sender?.toJson(),
+      'mentioned_users':
+          instance.mentionedUsers.map((e) => e.toJson()).toList(),
+      'translations': instance.translations,
+      'translation_target_languages': instance.translationTargetLanguages,
+      'poll': instance.poll?.toJson(),
+    };
 
 const _$ChannelTypeEnumMap = {
   ChannelType.group: 'group',

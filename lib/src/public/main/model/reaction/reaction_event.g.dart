@@ -20,6 +20,17 @@ ReactionEvent _$ReactionEventFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updated_at'] as int,
     );
 
+Map<String, dynamic> _$ReactionEventToJson(ReactionEvent instance) =>
+    <String, dynamic>{
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'channel_url': instance.channelUrl,
+      'msg_id': instance.messageId,
+      'reaction': instance.key,
+      'user_id': instance.userId,
+      'operation': _$ReactionEventActionEnumMap[instance.operation]!,
+      'updated_at': instance.updatedAt,
+    };
+
 const _$ChannelTypeEnumMap = {
   ChannelType.group: 'group',
   ChannelType.open: 'open',

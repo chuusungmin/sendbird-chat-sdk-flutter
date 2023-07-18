@@ -13,6 +13,14 @@ ReadStatus _$ReadStatusFromJson(Map<String, dynamic> json) => ReadStatus(
       channelType: $enumDecode(_$ChannelTypeEnumMap, json['channel_type']),
     );
 
+Map<String, dynamic> _$ReadStatusToJson(ReadStatus instance) =>
+    <String, dynamic>{
+      'user': instance.userId,
+      'channel_url': instance.channelUrl,
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'ts': instance.timestamp,
+    };
+
 const _$ChannelTypeEnumMap = {
   ChannelType.group: 'group',
   ChannelType.open: 'open',

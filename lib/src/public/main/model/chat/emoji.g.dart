@@ -11,6 +11,11 @@ Emoji _$EmojiFromJson(Map<String, dynamic> json) => Emoji(
       url: json['url'] as String,
     );
 
+Map<String, dynamic> _$EmojiToJson(Emoji instance) => <String, dynamic>{
+      'key': instance.key,
+      'url': instance.url,
+    };
+
 EmojiCategory _$EmojiCategoryFromJson(Map<String, dynamic> json) =>
     EmojiCategory(
       id: json['id'] as int,
@@ -22,6 +27,14 @@ EmojiCategory _$EmojiCategoryFromJson(Map<String, dynamic> json) =>
           [],
     );
 
+Map<String, dynamic> _$EmojiCategoryToJson(EmojiCategory instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'url': instance.url,
+      'emojis': instance.emojis.map((e) => e.toJson()).toList(),
+    };
+
 EmojiContainer _$EmojiContainerFromJson(Map<String, dynamic> json) =>
     EmojiContainer(
       emojiHash: json['emoji_hash'] as String,
@@ -30,3 +43,10 @@ EmojiContainer _$EmojiContainerFromJson(Map<String, dynamic> json) =>
               .toList() ??
           [],
     );
+
+Map<String, dynamic> _$EmojiContainerToJson(EmojiContainer instance) =>
+    <String, dynamic>{
+      'emoji_hash': instance.emojiHash,
+      'emoji_categories':
+          instance.emojiCategories.map((e) => e.toJson()).toList(),
+    };

@@ -8,7 +8,7 @@ part 'app_info.g.dart';
 
 /// Represents information obtained from the application settings.
 /// The values for this will be set after a connection has been made.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class AppInfo {
   /// List of all premium features that application is using.
   @JsonKey(defaultValue: [])

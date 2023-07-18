@@ -18,3 +18,15 @@ LoginEvent _$LoginEventFromJson(Map<String, dynamic> json) => LoginEvent(
       maxUnreadCountOnSuperGroup:
           json['max_unread_count_on_super_group'] as int?,
     );
+
+Map<String, dynamic> _$LoginEventToJson(LoginEvent instance) =>
+    <String, dynamic>{
+      'new_key': instance.newKey,
+      'ekey': instance.eKey,
+      'key': instance.key,
+      'login_ts': instance.loginTimestamp,
+      'max_unread_count_on_super_group': instance.maxUnreadCountOnSuperGroup,
+      'reconnect': instance.reconnectConfiguration.toJson(),
+      'ping_interval': instance.pingInterval,
+      'pong_timeout': instance.watchdogInterval,
+    };

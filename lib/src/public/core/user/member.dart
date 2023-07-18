@@ -11,7 +11,7 @@ import 'package:sendbird_chat_sdk/src/public/main/define/enums.dart';
 part 'member.g.dart';
 
 /// Represents a `GroupChannel` member.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Member extends User {
   /// The [Member]'s invitation state.
   @JsonKey(name: 'state', unknownEnumValue: MemberState.none)

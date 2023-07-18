@@ -13,7 +13,7 @@ import 'package:sendbird_chat_sdk/src/public/main/define/enums.dart';
 part 'sender.g.dart';
 
 /// Represents a sender.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Sender extends User {
   /// Whether this sender is blocked by [SendbirdChat.currentUser].
   final bool isBlockedByMe;

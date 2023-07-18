@@ -6,7 +6,7 @@ import 'package:sendbird_chat_sdk/src/public/core/message/base_message.dart';
 part 'message_change_logs.g.dart';
 
 /// The MessageChangeLogs class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MessageChangeLogs {
   /// The updated messages.
   @JsonKey(defaultValue: [], name: 'updated')

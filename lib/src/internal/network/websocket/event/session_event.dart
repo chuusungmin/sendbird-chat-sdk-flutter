@@ -5,7 +5,7 @@ import 'package:sendbird_chat_sdk/src/internal/network/websocket/event/base_even
 
 part 'session_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class SessionEvent extends BaseEvent {
   final String? newKey;
 

@@ -14,6 +14,13 @@ ScheduledInfo _$ScheduledInfoFromJson(Map<String, dynamic> json) =>
           $enumDecode(_$ScheduledStatusEnumMap, json['scheduled_status']),
     );
 
+Map<String, dynamic> _$ScheduledInfoToJson(ScheduledInfo instance) =>
+    <String, dynamic>{
+      'scheduled_message_id': instance.scheduledMessageId,
+      'scheduled_at': instance.scheduledAt,
+      'scheduled_status': _$ScheduledStatusEnumMap[instance.scheduledStatus]!,
+    };
+
 const _$ScheduledStatusEnumMap = {
   ScheduledStatus.pending: 'pending',
   ScheduledStatus.inQueue: 'in_queue',

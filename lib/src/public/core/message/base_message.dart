@@ -38,6 +38,7 @@ import 'package:sendbird_chat_sdk/src/public/main/params/message/threaded_messag
 part 'package:sendbird_chat_sdk/src/internal/main/extensions/base_message_extensions.dart';
 
 /// Base class for messages.
+@JsonSerializable()
 abstract class BaseMessage {
   /// The request ID of the message.
   final String? requestId;
@@ -92,6 +93,7 @@ abstract class BaseMessage {
   BaseMessage? parentMessage;
 
   /// The thread info of the message.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   ThreadInfo? threadInfo;
 
   /// All [MessageMetaArray]s of the message.
@@ -559,5 +561,9 @@ abstract class BaseMessage {
       }).toList();
     }
     return message as T;
+  }
+
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
   }
 }

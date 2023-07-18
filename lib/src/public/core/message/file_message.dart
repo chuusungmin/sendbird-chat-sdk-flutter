@@ -22,7 +22,7 @@ import 'package:uuid/uuid.dart';
 part 'file_message.g.dart';
 
 /// Object representing a file.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class FileMessage extends BaseMessage {
   /// The file URL.
   final String url;
@@ -50,6 +50,7 @@ class FileMessage extends BaseMessage {
   /// Represents the thumbnail information of image file.
   /// To make thumbnail of image when you send it,
   /// please refer to [BaseChannelMessage.sendFileMessage].
+  @JsonKey(defaultValue: [])
   final List<Thumbnail>? thumbnails;
 
   /// [FileMessageCreateParams] object that used for sending this message.
@@ -199,10 +200,13 @@ class FileMessage extends BaseMessage {
         thumbnails,
         requireAuth,
       );
+
+  @override
+  Map<String, dynamic> toJson() => _$FileMessageToJson(this);
 }
 
 /// An object represents thumbnail
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Thumbnail {
   String url;
   String? plainUrl;
@@ -222,6 +226,9 @@ class Thumbnail {
 
   factory Thumbnail.fromJson(Map<String, dynamic> json) =>
       _$ThumbnailFromJson(json);
+
+
+  Map<String, dynamic> toJson() => _$ThumbnailToJson(this);
 
   @override
   bool operator ==(other) {

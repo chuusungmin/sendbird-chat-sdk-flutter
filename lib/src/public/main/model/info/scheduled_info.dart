@@ -6,7 +6,7 @@ import 'package:sendbird_chat_sdk/src/public/main/define/enums.dart';
 part 'scheduled_info.g.dart';
 
 /// Class holding an information about the scheduled messages.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ScheduledInfo {
   /// The ID of the scheduled message.
   final int scheduledMessageId;

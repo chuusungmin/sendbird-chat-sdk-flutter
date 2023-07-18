@@ -13,3 +13,11 @@ MuteInfo _$MuteInfoFromJson(Map<String, dynamic> json) => MuteInfo(
       endAt: json['end_at'] as int?,
       remainingDuration: json['remaining_duration'] as int?,
     );
+
+Map<String, dynamic> _$MuteInfoToJson(MuteInfo instance) => <String, dynamic>{
+      'is_muted': instance.isMuted,
+      'description': instance.description,
+      'start_at': instance.startAt,
+      'end_at': instance.endAt,
+      'remaining_duration': instance.remainingDuration,
+    };

@@ -24,3 +24,13 @@ AppInfo _$AppInfoFromJson(Map<String, dynamic> json) => AppInfo(
               json['notifications'] as Map<String, dynamic>),
       allowSdkStatsUpload: json['allow_sdk_log_ingestion'] as bool? ?? true,
     );
+
+Map<String, dynamic> _$AppInfoToJson(AppInfo instance) => <String, dynamic>{
+      'premium_feature_list': instance.premiumFeatureList,
+      'file_upload_size_limit': instance.uploadSizeLimit,
+      'application_attributes': instance.attributesInUse,
+      'emoji_hash': instance.emojiHash,
+      'use_reaction': instance.useReaction,
+      'notifications': instance.notificationInfo?.toJson(),
+      'allow_sdk_log_ingestion': instance.allowSdkStatsUpload,
+    };

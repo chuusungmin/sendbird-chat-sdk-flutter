@@ -79,7 +79,7 @@ part 'group_channel_typing.dart';
 part 'package:sendbird_chat_sdk/src/internal/main/extensions/group_channel_extensions.dart';
 
 /// Represents a group channel.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class GroupChannel extends BaseChannel {
   /// The last message of the channel.
   BaseMessage? lastMessage;
@@ -376,6 +376,8 @@ class GroupChannel extends BaseChannel {
   factory GroupChannel.fromJsonWithChat(Chat chat, Map<String, dynamic> json) {
     return GroupChannel.fromJson(json)..set(chat);
   }
+
+  Map<String, dynamic> toJson() => _$GroupChannelToJson(this);
 
   @override
   bool operator ==(other) {

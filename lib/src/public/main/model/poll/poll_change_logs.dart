@@ -6,7 +6,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/poll/poll.dart';
 part 'poll_change_logs.g.dart';
 
 /// The PollChangeLogs class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class PollChangeLogs {
   /// The updated polls.
   @JsonKey(defaultValue: [], name: 'updated')

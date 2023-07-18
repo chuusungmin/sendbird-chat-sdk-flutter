@@ -30,6 +30,22 @@ Sender _$SenderFromJson(Map<String, dynamic> json) => Sender(
       requireAuth: json['require_auth_for_profile_image'] as bool? ?? false,
     )..isActive = json['is_active'] as bool?;
 
+Map<String, dynamic> _$SenderToJson(Sender instance) => <String, dynamic>{
+      'user_id': instance.userId,
+      'nickname': instance.nickname,
+      'profile_url': instance.profileUrl,
+      'is_online': connectionStatusToBool(instance.connectionStatus),
+      'last_seen_at': instance.lastSeenAt,
+      'is_active': instance.isActive,
+      'preferred_languages': instance.preferredLanguages,
+      'friend_discovery_key': instance.friendDiscoveryKey,
+      'friend_name': instance.friendName,
+      'metadata': instance.metaData,
+      'require_auth_for_profile_image': instance.requireAuth,
+      'is_blocked_by_me': instance.isBlockedByMe,
+      'role': _$RoleEnumMap[instance.role]!,
+    };
+
 const _$RoleEnumMap = {
   Role.none: 'none',
   Role.operator: 'operator',

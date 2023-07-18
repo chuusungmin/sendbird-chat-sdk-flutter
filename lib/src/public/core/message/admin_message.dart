@@ -16,7 +16,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/thread/thread_info.dart'
 part 'admin_message.g.dart';
 
 /// Object representing an admin message.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class AdminMessage extends BaseMessage {
   AdminMessage({
     required int messageId,
@@ -79,4 +79,7 @@ class AdminMessage extends BaseMessage {
   factory AdminMessage.fromJsonWithChat(Chat chat, Map<String, dynamic> json) {
     return AdminMessage.fromJson(json)..set(chat);
   }
+
+  @override
+  Map<String, dynamic> toJson() => _$AdminMessageToJson(this);
 }

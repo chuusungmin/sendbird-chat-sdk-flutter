@@ -8,7 +8,7 @@ import 'package:sendbird_chat_sdk/src/public/core/channel/open_channel/open_chan
 
 part 'mcnt_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MCNTEvent extends BaseEvent {
   @JsonKey(defaultValue: [])
   List<GroupChannel> groupChannels;

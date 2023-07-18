@@ -8,7 +8,7 @@ import 'package:sendbird_chat_sdk/src/internal/main/utils/json_converter.dart';
 part 'read_status.g.dart';
 
 // Represents read status of a [User].
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ReadStatus implements Cacheable {
   // [User]'s id
   @JsonKey(fromJson: userToUserId, name: 'user')

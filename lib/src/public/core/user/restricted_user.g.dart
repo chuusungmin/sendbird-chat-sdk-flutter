@@ -27,6 +27,21 @@ RestrictedUser _$RestrictedUserFromJson(Map<String, dynamic> json) =>
       requireAuth: json['require_auth_for_profile_image'] as bool? ?? false,
     )..isActive = json['is_active'] as bool?;
 
+Map<String, dynamic> _$RestrictedUserToJson(RestrictedUser instance) =>
+    <String, dynamic>{
+      'user_id': instance.userId,
+      'nickname': instance.nickname,
+      'profile_url': instance.profileUrl,
+      'is_online': connectionStatusToBool(instance.connectionStatus),
+      'last_seen_at': instance.lastSeenAt,
+      'is_active': instance.isActive,
+      'preferred_languages': instance.preferredLanguages,
+      'friend_discovery_key': instance.friendDiscoveryKey,
+      'friend_name': instance.friendName,
+      'metadata': instance.metaData,
+      'require_auth_for_profile_image': instance.requireAuth,
+    };
+
 RestrictionInfo _$RestrictionInfoFromJson(Map<String, dynamic> json) =>
     RestrictionInfo(
       description: json['description'] as String?,
@@ -35,6 +50,13 @@ RestrictionInfo _$RestrictionInfoFromJson(Map<String, dynamic> json) =>
               _$RestrictionTypeEnumMap, json['restriction_type']) ??
           RestrictionType.muted,
     );
+
+Map<String, dynamic> _$RestrictionInfoToJson(RestrictionInfo instance) =>
+    <String, dynamic>{
+      'description': instance.description,
+      'end_at': instance.endAt,
+      'restriction_type': _$RestrictionTypeEnumMap[instance.restrictionType]!,
+    };
 
 const _$RestrictionTypeEnumMap = {
   RestrictionType.muted: 'muted',

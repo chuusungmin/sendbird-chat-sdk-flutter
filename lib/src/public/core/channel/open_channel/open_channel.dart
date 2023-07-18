@@ -21,7 +21,7 @@ part 'open_channel.g.dart';
 part 'open_channel_operation.dart';
 
 /// Represents an open channel.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class OpenChannel extends BaseChannel {
   /// The total number of participants in this channel.
   int participantCount;
@@ -141,6 +141,8 @@ class OpenChannel extends BaseChannel {
   factory OpenChannel.fromJsonWithChat(Chat chat, Map<String, dynamic> json) {
     return OpenChannel.fromJson(json)..set(chat);
   }
+
+  Map<String, dynamic> toJson() => _$OpenChannelToJson(this);
 
   @override
   bool operator ==(other) {

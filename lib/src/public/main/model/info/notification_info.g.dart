@@ -13,3 +13,11 @@ NotificationInfo _$NotificationInfoFromJson(Map<String, dynamic> json) =>
       settingsUpdatedAt: json['settings_updated_at'] as int,
       templateListToken: json['template_list_token'] as String?,
     );
+
+Map<String, dynamic> _$NotificationInfoToJson(NotificationInfo instance) =>
+    <String, dynamic>{
+      'enabled': instance.isEnabled,
+      'feed_channels': instance.feedChannels,
+      'settings_updated_at': instance.settingsUpdatedAt,
+      'template_list_token': instance.templateListToken,
+    };

@@ -20,5 +20,6 @@ class MessageMetaArray {
 
   factory MessageMetaArray.fromJson(Map<String, dynamic> json) =>
       _$MessageMetaArrayFromJson(json);
+
   Map<String, dynamic> toJson() => _$MessageMetaArrayToJson(this);
 }

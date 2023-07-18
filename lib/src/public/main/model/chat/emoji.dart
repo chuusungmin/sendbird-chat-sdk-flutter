@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'emoji.g.dart';
 
 /// Objects representing a emoji.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Emoji {
   /// The key of the emoji.
   final String key;
@@ -16,10 +16,12 @@ class Emoji {
   Emoji({required this.key, required this.url});
 
   factory Emoji.fromJson(Map<String, dynamic> json) => _$EmojiFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EmojiToJson(this);
 }
 
 /// Objects representing a category of emoji.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class EmojiCategory {
   /// The id of the emoji category.
   final int id;
@@ -43,10 +45,12 @@ class EmojiCategory {
 
   factory EmojiCategory.fromJson(Map<String, dynamic> json) =>
       _$EmojiCategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EmojiCategoryToJson(this);
 }
 
 /// Objects representing emoji information.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class EmojiContainer {
   /// The hash value of emoji information.
   final String emojiHash;

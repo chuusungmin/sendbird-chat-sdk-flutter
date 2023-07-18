@@ -14,3 +14,9 @@ DeliveryStatus _$DeliveryStatusFromJson(Map<String, dynamic> json) =>
           ) ??
           const {},
     );
+
+Map<String, dynamic> _$DeliveryStatusToJson(DeliveryStatus instance) =>
+    <String, dynamic>{
+      'channel_url': instance.channelUrl,
+      'updated': instance.updatedDeliveryStatus,
+    };

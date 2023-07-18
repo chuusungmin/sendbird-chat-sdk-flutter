@@ -17,3 +17,12 @@ UnreadMessageCountInfo _$UnreadMessageCountInfoFromJson(
           const {},
       ts: json['ts'] as int? ?? 0,
     );
+
+Map<String, dynamic> _$UnreadMessageCountInfoToJson(
+        UnreadMessageCountInfo instance) =>
+    <String, dynamic>{
+      'all': instance.all,
+      'feed': instance.feed,
+      'custom_types': instance.customTypes,
+      'ts': instance.ts,
+    };

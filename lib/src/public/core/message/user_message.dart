@@ -21,7 +21,7 @@ import 'package:sendbird_chat_sdk/src/public/main/params/message/user_message_cr
 part 'user_message.g.dart';
 
 /// Object representing a user message.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class UserMessage extends BaseMessage {
   /// The translated messages (key-value map) for the language codes in key.
   /// The messages that have been sent with translation option will have this map.
@@ -124,4 +124,7 @@ class UserMessage extends BaseMessage {
         super.hashCode,
         translations,
       );
+
+  @override
+  Map<String, dynamic> toJson() => _$UserMessageToJson(this);
 }

@@ -9,7 +9,7 @@ import 'package:sendbird_chat_sdk/src/public/main/define/enums.dart';
 
 part 'channel_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ChannelEvent extends BaseEvent {
   final String channelUrl;
 

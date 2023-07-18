@@ -20,7 +20,7 @@ import 'package:uuid/uuid.dart';
 
 part 'command.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class Command {
   String cmd;
 

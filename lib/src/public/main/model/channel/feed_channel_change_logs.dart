@@ -8,7 +8,7 @@ import 'package:sendbird_chat_sdk/src/public/core/channel/feed_channel/feed_chan
 part 'feed_channel_change_logs.g.dart';
 
 /// The FeedChannelChangeLogs class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class FeedChannelChangeLogs {
   /// The updated channels.
   @JsonKey(defaultValue: [], name: 'updated')

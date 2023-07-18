@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'snooze_period.g.dart';
 
 /// The SnoozePeriod class
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class SnoozePeriod {
   /// Flag for the snooze is on or off.
   @JsonKey(name: 'snooze_enabled')

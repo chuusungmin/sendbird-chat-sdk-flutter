@@ -8,7 +8,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/info/app_info.dart';
 
 part 'login_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class LoginEvent extends SessionEvent {
   @JsonKey(name: 'login_ts')
   final int loginTimestamp;

@@ -16,3 +16,11 @@ MessageChangeLogs _$MessageChangeLogsFromJson(Map<String, dynamic> json) =>
       hasMore: json['has_more'] as bool? ?? false,
       token: json['next'] as String?,
     );
+
+Map<String, dynamic> _$MessageChangeLogsToJson(MessageChangeLogs instance) =>
+    <String, dynamic>{
+      'updated': instance.updatedMessages.map((e) => e.toJson()).toList(),
+      'deleted': instance.deletedMessageIds,
+      'has_more': instance.hasMore,
+      'next': instance.token,
+    };

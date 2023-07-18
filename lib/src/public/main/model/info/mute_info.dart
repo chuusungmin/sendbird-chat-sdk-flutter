@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'mute_info.g.dart';
 
 /// The MuteInfo class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MuteInfo {
   /// IsMuted.
   final bool isMuted;

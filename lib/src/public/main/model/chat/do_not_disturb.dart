@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'do_not_disturb.g.dart';
 
 /// The DoNotDisturb class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class DoNotDisturb {
   /// Flag for the option is on or off.
   @JsonKey(name: 'do_not_disturb')

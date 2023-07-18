@@ -20,3 +20,14 @@ FeedChannelChangeLogs _$FeedChannelChangeLogsFromJson(
       hasMore: json['has_more'] as bool? ?? false,
       token: json['next'] as String?,
     );
+
+Map<String, dynamic> _$FeedChannelChangeLogsToJson(
+        FeedChannelChangeLogs instance) =>
+    <String, dynamic>{
+      'updated': instance.updatedChannels
+          .map(const FeedChannelConverter().toJson)
+          .toList(),
+      'deleted': instance.deletedChannelUrls,
+      'has_more': instance.hasMore,
+      'next': instance.token,
+    };

@@ -5,7 +5,7 @@ import 'package:sendbird_chat_sdk/src/internal/main/chat_cache/cache_service.dar
 
 part 'delivery_status.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class DeliveryStatus implements Cacheable {
   final String channelUrl;
 

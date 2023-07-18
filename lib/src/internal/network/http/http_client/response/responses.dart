@@ -15,7 +15,7 @@ import 'package:sendbird_chat_sdk/src/public/main/model/poll/poll.dart';
 
 part 'responses.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class OperatorListQueryResponse {
   @JsonKey(defaultValue: [])
   List<User> operators;
@@ -31,7 +31,7 @@ class OperatorListQueryResponse {
       _$OperatorListQueryResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class PollListQueryResponse {
   List<Poll> polls;
   String? next;
@@ -45,7 +45,7 @@ class PollListQueryResponse {
       _$PollListQueryResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class PollVoterListQueryResponse {
   List<User> voters;
   int? voteCount;
@@ -61,7 +61,7 @@ class PollVoterListQueryResponse {
       _$PollVoterListQueryResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class UserListQueryResponse<T extends User> {
   @_UserConverter()
   List<T> users;
@@ -83,7 +83,7 @@ class UserListQueryResponse<T extends User> {
   }
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ChannelListQueryResponse<T extends BaseChannel> {
   @JsonKey(name: 'channels')
   @_ChannelConverter()
@@ -106,7 +106,7 @@ class ChannelListQueryResponse<T extends BaseChannel> {
   }
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class FeedChannelListQueryResponse {
   @JsonKey(name: 'channels')
   @FeedChannelConverter()
@@ -129,7 +129,7 @@ class FeedChannelListQueryResponse {
   }
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MessageSearchQueryResponse {
   List<BaseMessage> results;
 
@@ -151,7 +151,7 @@ class MessageSearchQueryResponse {
       _$MessageSearchQueryResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MetaDataResponse {
   Map<String, String> metadata;
   int? ts;
@@ -165,7 +165,7 @@ class MetaDataResponse {
       _$MetaDataResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class ScheduledMessageResponse {
   @JsonKey(defaultValue: [])
   List<BaseMessage> scheduledMessages;
@@ -181,7 +181,7 @@ class ScheduledMessageResponse {
       _$ScheduledMessageResponseFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class UploadResponse {
   final String url;
 

@@ -10,7 +10,7 @@ import 'base_event.dart';
 
 part 'message_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class MessageEvent extends BaseEvent {
   @JsonKey(name: 'req_id')
   String? requestId;

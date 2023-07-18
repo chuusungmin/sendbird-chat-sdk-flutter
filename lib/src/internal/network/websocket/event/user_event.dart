@@ -7,7 +7,7 @@ import 'package:sendbird_chat_sdk/src/public/core/user/user.dart';
 
 part 'user_event.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class UserEvent extends BaseEvent {
   @JsonKey(fromJson: userEventValueOf, name: 'cat')
   UserEventCategory category;

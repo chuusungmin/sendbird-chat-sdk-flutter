@@ -16,6 +16,15 @@ ThreadInfoUpdateEvent _$ThreadInfoUpdateEventFromJson(
       channelUrl: json['channel_url'] as String,
     );
 
+Map<String, dynamic> _$ThreadInfoUpdateEventToJson(
+        ThreadInfoUpdateEvent instance) =>
+    <String, dynamic>{
+      'thread_info': instance.threadInfo.toJson(),
+      'parent_message_id': instance.targetMessageId,
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'channel_url': instance.channelUrl,
+    };
+
 const _$ChannelTypeEnumMap = {
   ChannelType.group: 'group',
   ChannelType.open: 'open',

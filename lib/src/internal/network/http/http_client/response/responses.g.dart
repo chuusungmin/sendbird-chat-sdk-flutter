@@ -16,6 +16,13 @@ OperatorListQueryResponse _$OperatorListQueryResponseFromJson(
       next: json['next'] as String?,
     );
 
+Map<String, dynamic> _$OperatorListQueryResponseToJson(
+        OperatorListQueryResponse instance) =>
+    <String, dynamic>{
+      'operators': instance.operators.map((e) => e.toJson()).toList(),
+      'next': instance.next,
+    };
+
 PollListQueryResponse _$PollListQueryResponseFromJson(
         Map<String, dynamic> json) =>
     PollListQueryResponse(
@@ -25,6 +32,13 @@ PollListQueryResponse _$PollListQueryResponseFromJson(
           const [],
       next: json['next'] as String?,
     );
+
+Map<String, dynamic> _$PollListQueryResponseToJson(
+        PollListQueryResponse instance) =>
+    <String, dynamic>{
+      'polls': instance.polls.map((e) => e.toJson()).toList(),
+      'next': instance.next,
+    };
 
 PollVoterListQueryResponse _$PollVoterListQueryResponseFromJson(
         Map<String, dynamic> json) =>
@@ -37,6 +51,14 @@ PollVoterListQueryResponse _$PollVoterListQueryResponseFromJson(
       voteCount: json['vote_count'] as int?,
     );
 
+Map<String, dynamic> _$PollVoterListQueryResponseToJson(
+        PollVoterListQueryResponse instance) =>
+    <String, dynamic>{
+      'voters': instance.voters.map((e) => e.toJson()).toList(),
+      'vote_count': instance.voteCount,
+      'next': instance.next,
+    };
+
 UserListQueryResponse<T> _$UserListQueryResponseFromJson<T extends User>(
         Map<String, dynamic> json) =>
     UserListQueryResponse<T>(
@@ -46,6 +68,13 @@ UserListQueryResponse<T> _$UserListQueryResponseFromJson<T extends User>(
           const [],
       next: json['next'] as String?,
     );
+
+Map<String, dynamic> _$UserListQueryResponseToJson<T extends User>(
+        UserListQueryResponse<T> instance) =>
+    <String, dynamic>{
+      'users': instance.users.map(_UserConverter<T>().toJson).toList(),
+      'next': instance.next,
+    };
 
 ChannelListQueryResponse<T>
     _$ChannelListQueryResponseFromJson<T extends BaseChannel>(
@@ -58,6 +87,13 @@ ChannelListQueryResponse<T>
           next: json['next'] as String?,
         );
 
+Map<String, dynamic> _$ChannelListQueryResponseToJson<T extends BaseChannel>(
+        ChannelListQueryResponse<T> instance) =>
+    <String, dynamic>{
+      'channels': instance.channels.map(_ChannelConverter<T>().toJson).toList(),
+      'next': instance.next,
+    };
+
 FeedChannelListQueryResponse _$FeedChannelListQueryResponseFromJson(
         Map<String, dynamic> json) =>
     FeedChannelListQueryResponse(
@@ -67,6 +103,14 @@ FeedChannelListQueryResponse _$FeedChannelListQueryResponseFromJson(
           const [],
       next: json['next'] as String?,
     );
+
+Map<String, dynamic> _$FeedChannelListQueryResponseToJson(
+        FeedChannelListQueryResponse instance) =>
+    <String, dynamic>{
+      'channels':
+          instance.channels.map(const FeedChannelConverter().toJson).toList(),
+      'next': instance.next,
+    };
 
 MessageSearchQueryResponse _$MessageSearchQueryResponseFromJson(
         Map<String, dynamic> json) =>
@@ -80,6 +124,15 @@ MessageSearchQueryResponse _$MessageSearchQueryResponseFromJson(
       next: json['end_cursor'] as String?,
     );
 
+Map<String, dynamic> _$MessageSearchQueryResponseToJson(
+        MessageSearchQueryResponse instance) =>
+    <String, dynamic>{
+      'results': instance.results.map((e) => e.toJson()).toList(),
+      'has_next': instance.hasNext,
+      'total_count': instance.totalCount,
+      'end_cursor': instance.next,
+    };
+
 MetaDataResponse _$MetaDataResponseFromJson(Map<String, dynamic> json) =>
     MetaDataResponse(
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
@@ -88,6 +141,12 @@ MetaDataResponse _$MetaDataResponseFromJson(Map<String, dynamic> json) =>
           const {},
       ts: json['ts'] as int?,
     );
+
+Map<String, dynamic> _$MetaDataResponseToJson(MetaDataResponse instance) =>
+    <String, dynamic>{
+      'metadata': instance.metadata,
+      'ts': instance.ts,
+    };
 
 ScheduledMessageResponse _$ScheduledMessageResponseFromJson(
         Map<String, dynamic> json) =>
@@ -99,6 +158,14 @@ ScheduledMessageResponse _$ScheduledMessageResponseFromJson(
       next: json['next'] as String?,
     );
 
+Map<String, dynamic> _$ScheduledMessageResponseToJson(
+        ScheduledMessageResponse instance) =>
+    <String, dynamic>{
+      'scheduled_messages':
+          instance.scheduledMessages.map((e) => e.toJson()).toList(),
+      'next': instance.next,
+    };
+
 UploadResponse _$UploadResponseFromJson(Map<String, dynamic> json) =>
     UploadResponse(
       url: json['url'] as String,
@@ -106,3 +173,11 @@ UploadResponse _$UploadResponseFromJson(Map<String, dynamic> json) =>
       requireAuth: json['require_auth'] as bool,
       fileSize: json['file_size'] as int,
     );
+
+Map<String, dynamic> _$UploadResponseToJson(UploadResponse instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+      'thumbnails': instance.thumbnails,
+      'require_auth': instance.requireAuth,
+      'file_size': instance.fileSize,
+    };

@@ -6,7 +6,7 @@ import 'package:sendbird_chat_sdk/src/public/main/chat/sendbird_chat.dart';
 part 'group_channel_unread_item_count.g.dart';
 
 /// The GroupChannelUnreadItemCount class for [SendbirdChat.getUnreadItemCount].
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class GroupChannelUnreadItemCount {
   /// Count of invitation of all group channels.
   final int? groupChannelInvitationCount;

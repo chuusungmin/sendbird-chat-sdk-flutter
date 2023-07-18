@@ -30,6 +30,22 @@ MessageEvent _$MessageEventFromJson(Map<String, dynamic> json) => MessageEvent(
       oldValues: json['old_values'] as Map<String, dynamic>?,
     );
 
+Map<String, dynamic> _$MessageEventToJson(MessageEvent instance) =>
+    <String, dynamic>{
+      'req_id': instance.requestId,
+      'msg_id': instance.messageId,
+      'force_update_last_message': instance.forceUpdateLastMessage,
+      'silent': instance.silent,
+      'channel_url': instance.channelUrl,
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'mention_type': _$MentionTypeEnumMap[instance.mentionType],
+      'user': instance.sender?.toJson(),
+      'mentioned_users':
+          instance.mentionedUsers?.map((e) => e.toJson()).toList(),
+      'thumbnails': instance.thumbnails?.map((e) => e.toJson()).toList(),
+      'old_values': instance.oldValues,
+    };
+
 const _$ChannelTypeEnumMap = {
   ChannelType.group: 'group',
   ChannelType.open: 'open',

@@ -7,7 +7,7 @@ import 'package:sendbird_chat_sdk/src/public/core/channel/group_channel/group_ch
 part 'group_channel_change_logs.g.dart';
 
 /// The GroupChannelChangeLogs class.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class GroupChannelChangeLogs {
   /// The updated channels.
   @JsonKey(defaultValue: [], name: 'updated')

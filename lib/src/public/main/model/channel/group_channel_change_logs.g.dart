@@ -20,3 +20,12 @@ GroupChannelChangeLogs _$GroupChannelChangeLogsFromJson(
       hasMore: json['has_more'] as bool? ?? false,
       token: json['next'] as String?,
     );
+
+Map<String, dynamic> _$GroupChannelChangeLogsToJson(
+        GroupChannelChangeLogs instance) =>
+    <String, dynamic>{
+      'updated': instance.updatedChannels.map((e) => e.toJson()).toList(),
+      'deleted': instance.deletedChannelUrls,
+      'has_more': instance.hasMore,
+      'next': instance.token,
+    };

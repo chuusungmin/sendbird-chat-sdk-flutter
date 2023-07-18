@@ -14,3 +14,13 @@ DoNotDisturb _$DoNotDisturbFromJson(Map<String, dynamic> json) => DoNotDisturb(
       endMin: json['end_min'] as int?,
       timezone: json['timezone'] as String?,
     );
+
+Map<String, dynamic> _$DoNotDisturbToJson(DoNotDisturb instance) =>
+    <String, dynamic>{
+      'do_not_disturb': instance.isDoNotDisturbOn,
+      'start_hour': instance.startHour,
+      'start_min': instance.startMin,
+      'end_hour': instance.endHour,
+      'end_min': instance.endMin,
+      'timezone': instance.timezone,
+    };

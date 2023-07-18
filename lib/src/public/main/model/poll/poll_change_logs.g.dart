@@ -18,3 +18,11 @@ PollChangeLogs _$PollChangeLogsFromJson(Map<String, dynamic> json) =>
       hasMore: json['has_more'] as bool? ?? false,
       token: json['next'] as String?,
     );
+
+Map<String, dynamic> _$PollChangeLogsToJson(PollChangeLogs instance) =>
+    <String, dynamic>{
+      'updated': instance.updatedPolls?.map((e) => e.toJson()).toList(),
+      'deleted': instance.deletedPollIds,
+      'has_more': instance.hasMore,
+      'next': instance.token,
+    };

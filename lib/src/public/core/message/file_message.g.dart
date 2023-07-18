@@ -12,8 +12,9 @@ FileMessage _$FileMessageFromJson(Map<String, dynamic> json) => FileMessage(
       size: json['size'] as int? ?? 0,
       type: json['type'] as String?,
       thumbnails: (json['thumbnails'] as List<dynamic>?)
-          ?.map((e) => Thumbnail.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => Thumbnail.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
       requireAuth: json['require_auth'] as bool? ?? false,
       requestId: json['request_id'] as String?,
       message: json['message'] as String?,
@@ -37,9 +38,6 @@ FileMessage _$FileMessageFromJson(Map<String, dynamic> json) => FileMessage(
       createdAt: json['created_at'] as int? ?? 0,
       updatedAt: json['updated_at'] as int? ?? 0,
       parentMessageId: json['parent_message_id'] as int?,
-      threadInfo: json['thread_info'] == null
-          ? null
-          : ThreadInfo.fromJson(json['thread_info'] as Map<String, dynamic>),
       customType: json['custom_type'] as String?,
       messageSurvivalSeconds: json['message_survival_seconds'] as int? ?? -1,
       forceUpdateLastMessage:
@@ -63,6 +61,43 @@ FileMessage _$FileMessageFromJson(Map<String, dynamic> json) => FileMessage(
       ..errorCode = json['error_code'] as int?
       ..extendedMessage =
           json['extended_message'] as Map<String, dynamic>? ?? {};
+
+Map<String, dynamic> _$FileMessageToJson(FileMessage instance) =>
+    <String, dynamic>{
+      'request_id': instance.requestId,
+      'message_id': instance.messageId,
+      'message': instance.message,
+      'sending_status': _$SendingStatusEnumMap[instance.sendingStatus],
+      'channel_url': instance.channelUrl,
+      'channel_type': _$ChannelTypeEnumMap[instance.channelType]!,
+      'mention_type': _$MentionTypeEnumMap[instance.mentionType],
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
+      'is_reply_to_channel': instance.isReplyToChannel,
+      'parent_message_id': instance.parentMessageId,
+      'parent_message_info': instance.parentMessage?.toJson(),
+      'sorted_metaarray':
+          instance.allMetaArrays?.map((e) => e.toJson()).toList(),
+      'custom_type': instance.customType,
+      'message_survival_seconds': instance.messageSurvivalSeconds,
+      'silent': instance.isSilent,
+      'error_code': instance.errorCode,
+      'is_op_msg': instance.isOperatorMessage,
+      'data': instance.data,
+      'og_tag': instance.ogMetaData?.toJson(),
+      'reactions': instance.reactions?.map((e) => e.toJson()).toList(),
+      'extended_message': instance.extendedMessage,
+      'force_update_last_message': instance.forceUpdateLastMessage,
+      'user': instance.sender?.toJson(),
+      'mentioned_users':
+          instance.mentionedUsers.map((e) => e.toJson()).toList(),
+      'url': instance.url,
+      'name': instance.name,
+      'size': instance.size,
+      'type': instance.type,
+      'thumbnails': instance.thumbnails?.map((e) => e.toJson()).toList(),
+      'require_auth': instance.requireAuth,
+    };
 
 const _$SendingStatusEnumMap = {
   SendingStatus.none: 'none',
@@ -91,3 +126,12 @@ Thumbnail _$ThumbnailFromJson(Map<String, dynamic> json) => Thumbnail(
       (json['real_height'] as num?)?.toDouble(),
       (json['real_width'] as num?)?.toDouble(),
     );
+
+Map<String, dynamic> _$ThumbnailToJson(Thumbnail instance) => <String, dynamic>{
+      'url': instance.url,
+      'plain_url': instance.plainUrl,
+      'height': instance.height,
+      'width': instance.width,
+      'real_height': instance.realHeight,
+      'real_width': instance.realWidth,
+    };

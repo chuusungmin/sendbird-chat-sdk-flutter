@@ -11,7 +11,7 @@ import 'package:sendbird_chat_sdk/src/public/main/define/enums.dart';
 part 'restricted_user.g.dart';
 
 /// Represents a restricted [User].
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class RestrictedUser extends User {
   /// [RestrictionInfo] of the current user.
   RestrictionInfo? get restrictionInfo => _restrictionInfo;
@@ -55,7 +55,7 @@ class RestrictedUser extends User {
 }
 
 /// Represents an detailed information of a [RestrictedUser] or [Member]'s restriction.
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class RestrictionInfo {
   /// Description of the restriction.
   final String? description;

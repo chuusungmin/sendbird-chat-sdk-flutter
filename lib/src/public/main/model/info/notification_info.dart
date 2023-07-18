@@ -7,7 +7,7 @@ part 'notification_info.g.dart';
 
 /// Represents information about Notifications.
 /// @since 4.0.3
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class NotificationInfo {
   /// Whether notification is enabled
   /// @since 4.0.3
@@ -35,4 +35,6 @@ class NotificationInfo {
 
   static NotificationInfo fromJson(Map<String, dynamic> json) =>
       _$NotificationInfoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NotificationInfoToJson(this);
 }

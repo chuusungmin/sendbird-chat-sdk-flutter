@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'unread_message_count_info.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class UnreadMessageCountInfo {
   int all;
   int feed;
