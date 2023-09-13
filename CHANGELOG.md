@@ -1,3 +1,28 @@
+## [3.2.17] - Aug 14, 2023
+
+- Fix issue with no named parameter for JsonKey
+
+## [3.2.16] - Aug 10, 2023
+
+- Resolve warning issues
+- Fix issue with API Token missing
+- Fix typo `allowMultipleVotes`
+- Include device token caching
+
+## [3.2.15] - July 7, 2023
+
+- Fix issue with resendFileMessage()
+- Fix issue with access code always false
+
+## [3.2.14] - Jun 16, 2023
+
+- Fix issue with MarkAsDirty Method
+- Fix issue with retrieving public group channel list
+
+## [3.2.13] - Jun 2, 2023
+
+- Update Connectivity Plus to 4.0.1
+
 ## [3.2.12] - May 24, 2023
 
 - Removed error thrown when refresh successful key

@@ -1,6 +1,5 @@
 import 'package:universal_io/io.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:sendbird_sdk/constant/enums.dart';
 import 'package:sendbird_sdk/core/channel/base/base_channel.dart';
@@ -144,16 +143,39 @@ class FileMessage extends BaseMessage {
     final msg = FileMessage(
       requestId: Uuid().v1(),
       url: params.uploadFile.url ?? '',
-      messageId: 0,
       name: params.uploadFile.name,
-      localFile: params.uploadFile.file,
       size: params.uploadFile.fileSize ?? 0,
-      channelType: channel.channelType,
-      channelUrl: channel.channelUrl,
-      mentionType: params.mentionType,
-      createdAt: DateTime.now().millisecondsSinceEpoch,
+      // thumbnails
       requireAuth: false,
+      localFile: params.uploadFile.file,
+      // requestId
+      // message
+      messageId: 0,
+      // sending Status
+      // sender
+      channelUrl: channel.channelUrl,
+      channelType: channel.channelType,
+      mentionedUserIds: params.mentionedUserIds,
+      mentionType: params.mentionType,
+      // requestedMentionUserIds
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      // updatedAt
+      parentMessageId: params.parentMessageId,
+      // parentMessageText
+      // threadInfo
+      metaArrays: params.metaArrays,
+      customType: params.customType,
+      // messageSurvivalSeconds
+      // forceUpdateLastMessage
+      // isSilent
+      // errorCode
+      // isOperatorMessage
+      data: params.data,
+      // ogMetaData
+      // reactions
       replyToChannel: params.replyToChannel,
+      // parentMessage
+      isPinnedMessage: params.isPinnedMessage,
     );
     return msg;
   }

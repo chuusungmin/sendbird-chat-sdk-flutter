@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:ui';
 
 import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -113,7 +112,7 @@ class GroupChannel extends BaseChannel {
   bool isExclusive;
 
   /// True if this channel is required access code
-  @JsonKey(defaultValue: false)
+  @JsonKey(defaultValue: false, name: "is_access_code_required")
   bool accessCodeRequired;
 
   /// Unread message count of the channel
@@ -370,7 +369,6 @@ class GroupChannel extends BaseChannel {
       channel.fromCache = true;
       return channel;
     }
-
     return GroupChannel.refresh(channelUrl);
   }
 
